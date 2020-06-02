@@ -13,7 +13,6 @@ class DateAxisValueFormatter    (// minimum timestamp in your data set
 ) :
     ValueFormatter() {
 
-    private val mDate: Date
 
     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
         val convertedTimestamp = value.toLong()
@@ -28,8 +27,4 @@ class DateAxisValueFormatter    (// minimum timestamp in your data set
         return requiredFormat.format(newDate)
     }
 
-    init {
-
-        mDate = Date()
-    }
 }
