@@ -1,0 +1,15 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<resources>
+
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#03A9F4</color>
+    <color name="confirmedColor">#F31707</color>
+    <color name="confirmedColorBackground">#1EF31707</color>
+    <color name="recoveredColor">#119818</color>
+    <color name="recoveredColorBackground">#2A3ADA42</color>
+    <color name="deceasedColor">#FA272323</color>
+    <color name="deceasedColorBackground">#2A272323</color>
+
+</resources>

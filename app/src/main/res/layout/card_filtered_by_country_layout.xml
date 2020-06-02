@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.bismeet.covidinfo.ui.home.HomeViewModel" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="8dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="match_parent"
+            android:background="@color/primary_light"
+
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/countryName"
+                style="@style/TextAppearance.AppCompat.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/primary_dark"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/confirmedText"
+                app:layout_constraintStart_toStartOf="@id/confirmedText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setCountryName="@{viewmodel.selectedCountryNameData}" />
+
+            <TextView
+                android:id="@+id/confirmedText"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/confirmed"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/confirmedCount"
+                app:layout_constraintEnd_toStartOf="@+id/recoveredText"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/countryName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/recoveredText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/recovered"
+                app:layout_constraintBottom_toTopOf="@+id/recoveredCount"
+                app:layout_constraintEnd_toStartOf="@+id/deceasedText"
+                app:layout_constraintStart_toEndOf="@+id/confirmedText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/deceasedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/deceased"
+                app:layout_constraintBottom_toTopOf="@+id/deceasedCount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/recoveredText"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/confirmedCount"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.CountCases"
+
+                android:textColor="@color/confirmedColor"
+
+                app:layout_constraintEnd_toEndOf="@id/confirmedText"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="@id/confirmedText"
+                app:layout_constraintTop_toBottomOf="@id/confirmedText"
+                app:setcountryCount="@{viewmodel.confirmedCountFromCountry}"
+                tools:text="44582" />
+
+            <TextView
+                android:id="@+id/recoveredCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.CountCases"
+                android:textColor="@color/recoveredColor"
+
+                app:layout_constraintEnd_toEndOf="@id/recoveredText"
+                app:layout_constraintStart_toStartOf="@id/recoveredText"
+                app:layout_constraintTop_toBottomOf="@id/recoveredText"
+                app:setcountryCount="@{viewmodel.recoveredCountFromCountry}"
+
+                tools:text="12583" />
+
+            <TextView
+                android:id="@+id/deceasedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.AppCompat.CountCases"
+                android:textColor="@color/deceasedColor"
+
+                app:layout_constraintEnd_toEndOf="@id/deceasedText"
+                app:layout_constraintStart_toStartOf="@id/deceasedText"
+                app:layout_constraintTop_toBottomOf="@+id/deceasedText"
+                app:setcountryCount="@{viewmodel.deathCountFromCountry}"
+
+                tools:text="1517" />
+
+
+
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="end"
+                app:constraint_referenced_ids="countryName"
+                 />
+
+
+            <!--    <include layout="@layout/card_filtered_by_country_layout" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
